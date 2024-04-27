@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: "Ubuntu Mono", monospace;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    background-color: #F1F3F6;
+    color: #34495e;
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+nav,
+main,
+footer {
+    padding: 2px calc((100% - 800px) / 2) 0;
+}
+
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+header a {
+    color: #34495e;
+    text-decoration: none;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+nav {
+    background-color: #FFFFFF;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #34495e;
+    text-decoration: none;
+
+    background-image: linear-gradient(to right,
+            #54b3d6,
+            #54b3d6 50%,
+            #000 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    /* padding: 5px 0; */
+    position: relative;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:before {
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background-position: 0;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+main {
+    padding-top: 24px;
+}
+
+footer {
+    background-color: #FFFFFF;
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.underline {
+    position: relative;
+}
+
+.underline::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #54b3d6;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .underline:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}

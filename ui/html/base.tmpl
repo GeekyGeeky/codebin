@@ -3,18 +3,46 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>{{template "title" .}} - Snippetbox</title>
+    <title>{{template "title" .}} - CodeBin</title>
+    <!-- Link to the CSS stylesheet and favicon -->
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- Also link to some fonts hosted by Google -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700"
+    />
   </head>
   <body>
     <header>
-      <h1><a href="/">Snippetbox</a></h1>
+      <h1><a href="/" class="underline">CodeBin</a></h1>
     </header>
     <!-- Invoke the navigation template -->
     {{template "nav" .}}
     <main>
       {{template "main" .}}
     </main>
-    <footer>Powered by <a href="https://golang.org/">Go</a></footer>
+    <footer>
+      <p>
+        &copy; <span class="current-year"></span> CodeBin | Developed by
+        <a href="https://github.com/geekygeeky">Geeky</a>
+      </p>
+    </footer>
   </body>
+  <script>
+    // when the DOM is ready
+    document.addEventListener("DOMContentLoaded", function () {
+      // get the the span element
+      const yrSpan = document.querySelector(".current-year");
+      // get the current year
+      const currentYr = new Date().getFullYear();
+      // set the year span element's text to the current year
+      yrSpan.textContent = currentYr;
+    });
+  </script>
 </html>
 {{ end }}
